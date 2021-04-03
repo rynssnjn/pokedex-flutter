@@ -7,6 +7,7 @@ part 'pokemon_type.g.dart';
 abstract class PokemonType with _$PokemonType {
   factory PokemonType({
     @JsonKey(nullable: true, name: 'name') String name,
+    @JsonKey(nullable: true, name: 'url') String url,
   }) = _PokemonType;
 
   factory PokemonType.fromJson(Map<String, dynamic> json) => _$PokemonTypeFromJson(json);

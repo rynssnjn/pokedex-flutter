@@ -2,12 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:pokedex_flutter/utilities/colors.dart';
 
 final pokedexTheme = ThemeData(
-  brightness: Brightness.light,
   primaryColor: primaryBackgroundColor,
   primaryIconTheme: IconThemeData(
     color: Colors.black,
   ),
   textTheme: TextTheme(
+    bodyText1: TextStyle(
+      fontSize: 15,
+      fontWeight: FontWeight.bold,
+      color: Colors.black,
+    ),
     headline1: TextStyle(
       fontSize: 25,
       fontWeight: FontWeight.w900,
@@ -21,6 +25,11 @@ final pokedexTheme = ThemeData(
     headline3: TextStyle(
       fontSize: 15,
       fontWeight: FontWeight.w500,
+    ),
+    headline4: TextStyle(
+      fontSize: 20,
+      fontWeight: FontWeight.w800,
+      color: Colors.black,
     ),
   ),
   scaffoldBackgroundColor: primaryBackgroundColor,

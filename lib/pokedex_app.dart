@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex_flutter/features/pokemon_list/pokemon_list_connector.dart';
 import 'package:pokedex_flutter/state/app_state.dart';
+import 'package:pokedex_flutter/utilities/app_router.dart';
 import 'package:pokedex_flutter/utilities/theme.dart';
 import 'package:rsj_f/rsj_f.dart';
 
@@ -14,6 +16,14 @@ class PokedexApp extends StatelessWidget {
       store: store,
       child: MaterialApp(
         theme: pokedexTheme,
+        home: WillPopScope(
+          onWillPop: () async => !await mainNavigatorKey.currentState.maybePop(),
+          child: Navigator(
+            key: mainNavigatorKey,
+            initialRoute: PokemonListConnector.route,
+            onGenerateRoute: AppRouter.generateRoute,
+          ),
+        ),
       ),
     );
   }
