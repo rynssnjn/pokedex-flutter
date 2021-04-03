@@ -1,0 +1,6 @@
+linter:
+  rules:
+    constant_identifier_names: false
+    non_constant_identifier_names: false
+    prefer_const_constructors: false
+    prefer_initializing_formals: false

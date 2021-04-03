@@ -1,0 +1,28 @@
+name: pokedex_flutter
+description: A new Flutter project.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  http: ^0.12.1
+  freezed_annotation: any
+  freezed: any
+  json_serializable: any
+  json_annotation: any
+  
+  rsj_f:
+    git: https://github.com/rynssnjn/rsj_f.git
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  build_runner: any
+
+flutter:
+  uses-material-design: true
