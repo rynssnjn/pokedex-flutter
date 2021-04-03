@@ -18,10 +18,16 @@ class PokedexApp extends StatelessWidget {
         theme: pokedexTheme,
         home: WillPopScope(
           onWillPop: () async => !await mainNavigatorKey.currentState.maybePop(),
-          child: Navigator(
-            key: mainNavigatorKey,
-            initialRoute: PokemonListConnector.route,
-            onGenerateRoute: AppRouter.generateRoute,
+          child: UserExceptionWidget<AppState>(
+            requestFlushbar: (key, bContext) => RSJFlushBar(
+              title: key,
+              message: key,
+            ),
+            child: Navigator(
+              key: mainNavigatorKey,
+              initialRoute: PokemonListConnector.route,
+              onGenerateRoute: AppRouter.generateRoute,
+            ),
           ),
         ),
       ),

@@ -560,7 +560,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "86e3906cecc37d3f0031eac82837efbae384c491"
+      resolved-ref: cdcd6686c64f196e01bb211095bada3a6143fd7c
       url: "https://github.com/rynssnjn/rsj_f.git"
     source: git
     version: "0.0.1"
