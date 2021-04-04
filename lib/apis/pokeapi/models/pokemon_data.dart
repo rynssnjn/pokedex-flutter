@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:pokedex_flutter/apis/pokeapi/models/pokemon_abilities.dart';
 import 'package:pokedex_flutter/apis/pokeapi/models/pokemon_form.dart';
-import 'package:pokedex_flutter/apis/pokeapi/models/pokemon_move.dart';
+import 'package:pokedex_flutter/apis/pokeapi/models/pokemon_moves.dart';
 import 'package:pokedex_flutter/apis/pokeapi/models/pokemon_sprites.dart';
 import 'package:pokedex_flutter/apis/pokeapi/models/pokemon_statistics.dart';
 import 'package:pokedex_flutter/apis/pokeapi/models/pokemon_types.dart';
@@ -21,7 +21,7 @@ abstract class PokemonData with _$PokemonData {
     @JsonKey(nullable: true, name: 'type') String type,
     @JsonKey(nullable: true, name: 'is_default') bool isDefault,
     @JsonKey(nullable: true, name: 'location_area_encounters') String locationAreaEncounters,
-    @JsonKey(nullable: true, name: 'moves') List<PokemonMove> moves,
+    @JsonKey(nullable: true, name: 'moves') List<PokemonMoves> moves,
     @JsonKey(nullable: true, name: 'order') int order,
     @JsonKey(nullable: true, name: 'sprites') PokemonSprites sprites,
     @JsonKey(nullable: true, name: 'stats') List<PokemonStatistics> stats,

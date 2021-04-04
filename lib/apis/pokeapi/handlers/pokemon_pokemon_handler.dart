@@ -40,4 +40,25 @@ class PokemonPokemonApi {
       return PokemonData.fromJson(response.data);
     });
   }
+
+  Future<PokemonSpecies> getSpeciesById(int id) async {
+    final queryParams = <String, dynamic>{};
+
+    final baseUri = Uri.tryParse(apiClient.baseUrl);
+    final uri = baseUri.replace(queryParameters: queryParams, path: baseUri.path + '/pokemon-species/$id/');
+
+    return await apiClient.dio
+        .getUri(
+      uri,
+    )
+        .then((response) {
+      return PokemonSpecies.fromJson(response.data);
+    });
+  }
+
+  Future<Map> getEvolutionChainById(int id) async {
+    return await http.get(apiClient.baseUrl + '/evolution-chain/$id/').then((response) {
+      return jsonDecode(response.body)['chain'];
+    });
+  }
 }

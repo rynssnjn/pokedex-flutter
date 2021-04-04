@@ -9,6 +9,7 @@ part 'app_state.g.dart';
 @freezed
 abstract class AppState with _$AppState {
   factory AppState({
+    @JsonKey(name: 'localizationLastLoadedOn', nullable: true) DateTime localizationLastLoadedOn,
     @JsonKey(name: 'pagination', ignore: true) PaginationPokemon pagination,
     @JsonKey(name: 'wait', ignore: true) Wait wait,
     @required @JsonKey(name: 'pokemonState') PokemonState pokemonState,

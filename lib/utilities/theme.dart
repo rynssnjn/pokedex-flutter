@@ -7,6 +7,11 @@ final pokedexTheme = ThemeData(
     color: Colors.black,
   ),
   textTheme: TextTheme(
+    caption: TextStyle(
+      fontSize: 12,
+      fontWeight: FontWeight.w400,
+      color: Colors.blueGrey,
+    ),
     bodyText1: TextStyle(
       fontSize: 15,
       fontWeight: FontWeight.bold,

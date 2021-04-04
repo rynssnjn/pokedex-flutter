@@ -41,6 +41,7 @@ class DataHeader extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: Colors.white,
                   shape: BoxShape.circle,
+                  border: Border.all(color: Colors.blueGrey, width: 3.0),
                 ),
                 width: 120,
                 height: 120,

@@ -20,6 +20,8 @@ dependencies:
   rsj_f:
     git: https://github.com/rynssnjn/rsj_f.git
 
+  scrolling_page_indicator: ^0.1.3
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -28,3 +30,6 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/images/
+    - assets/translations/translations_en.strings
