@@ -7,6 +7,7 @@ import 'package:pokedex_flutter/state/actions/actions_pokemon.dart';
 import 'package:pokedex_flutter/state/app_state.dart';
 import 'package:pokedex_flutter/utilities/colors.dart';
 import 'package:pokedex_flutter/utilities/constants.dart';
+import 'package:pokedex_flutter/utilities/string_constants.dart';
 import 'package:rsj_f/rsj_f.dart';
 
 class _PokemonListVM extends BaseModel<AppState> {
@@ -34,7 +35,7 @@ class _PokemonListVM extends BaseModel<AppState> {
     } else if (state.pokemonState.pokemons?.isNotEmpty == true) {
       return Async(state.pokemonState.pokemons);
     } else {
-      return Async.error('error');
+      return Async.error(generalError);
     }
   }
 
@@ -119,7 +120,7 @@ class _PokemonListWidget extends StatelessWidget {
             loading: () => Center(
               child: RSJCircularIndicator(size: 30),
             ),
-            error: (key) => Center(child: Text(key)),
+            error: (key) => Center(child: Text(key.localized(context))),
           ),
         ),
       ),

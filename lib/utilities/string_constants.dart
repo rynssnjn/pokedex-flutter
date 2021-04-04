@@ -6,3 +6,4 @@ const String abilities = 'abilities';
 const String stats = 'stats';
 const String evolution = 'evolution';
 const String moves = 'moves';
+const String generalError = 'generalError';

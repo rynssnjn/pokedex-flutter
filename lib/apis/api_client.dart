@@ -1,6 +1,8 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
+import 'package:pokedex_flutter/utilities/app_router.dart';
+import 'package:pokedex_flutter/utilities/string_constants.dart';
 import 'package:rsj_f/rsj_f.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
@@ -27,7 +29,7 @@ class ApiClient {
           onError: (DioError error) {
             if (error.error is SocketException) {
               throw UserException(
-                'error',
+                generalError.localized(mainNavigatorKey.currentContext),
                 code: RequestExceptionCode(key: 'no_connection'),
               );
             }

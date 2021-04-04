@@ -13,6 +13,7 @@ import 'package:pokedex_flutter/state/actions/actions_pokemon.dart';
 import 'package:pokedex_flutter/state/app_state.dart';
 import 'package:pokedex_flutter/utilities/colors.dart';
 import 'package:pokedex_flutter/utilities/extensions.dart';
+import 'package:pokedex_flutter/utilities/string_constants.dart';
 import 'package:rsj_f/rsj_f.dart';
 
 class _PokemonDataVM extends BaseModel<AppState> {
@@ -46,7 +47,7 @@ class _PokemonDataVM extends BaseModel<AppState> {
     } else if (_pokemon != null) {
       return Async(_pokemon);
     } else {
-      return Async.error('error');
+      return Async.error(generalError);
     }
   }
 
@@ -56,7 +57,7 @@ class _PokemonDataVM extends BaseModel<AppState> {
     } else if (_evolution != null) {
       return Async(_evolution);
     } else {
-      return Async.error('error');
+      return Async.error(generalError);
     }
   }
 }
@@ -185,7 +186,7 @@ class _PokemonDataWidgetState extends State<_PokemonDataWidget> {
                             titleColor: widget.backgroundColor,
                           ),
                           loading: () => Center(child: RSJCircularIndicator(size: 30)),
-                          error: (key) => Text(key),
+                          error: (key) => Text(key.localized(context)),
                         ),
                         MovesContainer(
                           moves: pokemon.moves.map((e) => e.move.name).toUnmodifiable(),
@@ -206,7 +207,7 @@ class _PokemonDataWidgetState extends State<_PokemonDataWidget> {
             ],
           ),
           loading: () => Center(child: RSJCircularIndicator(size: 30)),
-          error: (key) => Text(key),
+          error: (key) => Text(key.localized(context)),
         ),
       ),
     );
