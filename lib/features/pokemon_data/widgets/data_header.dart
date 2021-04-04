@@ -2,8 +2,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:pokedex_flutter/apis/pokeapi/models/pokemon_type.dart';
 import 'package:pokedex_flutter/features/pokemon_data/widgets/type_card.dart';
-import 'package:pokedex_flutter/widgets/pokedex_circular_indicator.dart';
 import 'package:dartx/dartx.dart';
+import 'package:rsj_f/rsj_f.dart';
 
 class DataHeader extends StatelessWidget {
   const DataHeader({
@@ -47,7 +47,7 @@ class DataHeader extends StatelessWidget {
                 child: CachedNetworkImage(
                   imageUrl: imageURL,
                   fit: BoxFit.fill,
-                  placeholder: (_, __) => Center(child: PokedexCircularIndicator(size: 20)),
+                  placeholder: (_, __) => Center(child: RSJCircularIndicator(size: 20)),
                 ),
               ),
               Column(

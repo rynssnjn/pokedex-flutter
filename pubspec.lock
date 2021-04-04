@@ -15,6 +15,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.41.2"
+  another_flushbar:
+    dependency: transitive
+    description:
+      name: another_flushbar
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.10.17"
   archive:
     dependency: transitive
     description:
@@ -239,13 +246,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.0"
-  flushbar:
-    dependency: transitive
-    description:
-      name: flushbar
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.10.4"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -560,7 +560,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: cdcd6686c64f196e01bb211095bada3a6143fd7c
+      resolved-ref: "70bf8ca89abee6e55a6e3fd540b9b23ad7f0ebc3"
       url: "https://github.com/rynssnjn/rsj_f.git"
     source: git
     version: "0.0.1"

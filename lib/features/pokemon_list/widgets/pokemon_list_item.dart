@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:pokedex_flutter/utilities/colors.dart';
-import 'package:pokedex_flutter/widgets/pokedex_circular_indicator.dart';
+import 'package:rsj_f/rsj_f.dart';
 
 class PokemonListItem extends StatelessWidget {
   const PokemonListItem({
@@ -32,7 +32,7 @@ class PokemonListItem extends StatelessWidget {
             CachedNetworkImage(
               imageUrl: imageUrl,
               fit: BoxFit.fill,
-              placeholder: (_, __) => Center(child: PokedexCircularIndicator(size: 20)),
+              placeholder: (_, __) => Center(child: RSJCircularIndicator(size: 20)),
             ),
             Text(name, style: textTheme.bodyText1),
           ],

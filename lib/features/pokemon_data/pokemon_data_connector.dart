@@ -5,7 +5,6 @@ import 'package:pokedex_flutter/models/async.dart';
 import 'package:pokedex_flutter/state/actions/actions_pokemon.dart';
 import 'package:pokedex_flutter/state/app_state.dart';
 import 'package:pokedex_flutter/utilities/colors.dart';
-import 'package:pokedex_flutter/widgets/pokedex_circular_indicator.dart';
 import 'package:pokedex_flutter/utilities/extensions.dart';
 import 'package:rsj_f/rsj_f.dart';
 
@@ -110,7 +109,7 @@ class _PokemonDataWidget extends StatelessWidget {
               ),
             ],
           ),
-          loading: () => Center(child: PokedexCircularIndicator(size: 30)),
+          loading: () => Center(child: RSJCircularIndicator(size: 30)),
           error: (key) => Text(key),
         ),
       ),

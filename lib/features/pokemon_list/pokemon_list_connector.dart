@@ -7,7 +7,6 @@ import 'package:pokedex_flutter/state/actions/actions_pokemon.dart';
 import 'package:pokedex_flutter/state/app_state.dart';
 import 'package:pokedex_flutter/utilities/colors.dart';
 import 'package:pokedex_flutter/utilities/constants.dart';
-import 'package:pokedex_flutter/widgets/pokedex_circular_indicator.dart';
 import 'package:rsj_f/rsj_f.dart';
 
 class _PokemonListVM extends BaseModel<AppState> {
@@ -118,7 +117,7 @@ class _PokemonListWidget extends StatelessWidget {
                   .toUnmodifiable(),
             ),
             loading: () => Center(
-              child: PokedexCircularIndicator(size: 30),
+              child: RSJCircularIndicator(size: 30),
             ),
             error: (key) => Center(child: Text(key)),
           ),
