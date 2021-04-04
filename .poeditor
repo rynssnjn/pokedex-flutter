@@ -1,0 +1,9 @@
+[main]
+apiKey = 64166868afbf302d65e3d7e6b19bf45d
+
+[project.pokedex]
+project_id = 429725
+type = apple_strings
+
+#Translations
+trans.en = assets/translations/translations_en.strings

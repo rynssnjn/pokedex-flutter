@@ -1,4 +1,6 @@
 "about" = "About";
+
+/*Fuzzy*/
 "height" = "Height";
 "weight" = "Weight";
 "baseExperience" = "Base Experience";
