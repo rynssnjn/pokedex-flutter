@@ -142,7 +142,7 @@ class _PokemonDataWidgetState extends State<_PokemonDataWidget> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: widget.backgroundColor ?? lightOrange,
+        backgroundColor: widget.backgroundColor ?? appBarDefault,
         leading: IconButton(
           onPressed: () => Navigator.pop(context),
           icon: Icon(

@@ -85,7 +85,7 @@ class _PokemonListWidget extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: lightOrange,
+        backgroundColor: appBarDefault,
         title: Text(
           appTitle,
           style: textTheme.headline4,

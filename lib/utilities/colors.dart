@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 const Color primaryBackgroundColor = Color(0xffffffff);
 const Color floatingActionButtonColor = Color(0xff6c7cd8);
 const Color lightOrange = Color(0xffe8a413);
+const Color appBarDefault = Color((0xffe8d9d8));
 
 final cardGradientBackground = LinearGradient(
   colors: [
