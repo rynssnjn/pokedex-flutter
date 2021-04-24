@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:pokedex_flutter/apis/api_service.dart';
 import 'package:pokedex_flutter/apis/pokeapi/models/pokemon_evolution.dart';
 import 'package:pokedex_flutter/apis/pokeapi/models/pokemon_pokemon.dart';
-import 'package:pokedex_flutter/state/actions/actions.dart';
 import 'package:pokedex_flutter/state/app_state.dart';
 import 'package:pokedex_flutter/utilities/app_starter.dart';
 import 'package:dartx/dartx.dart';
