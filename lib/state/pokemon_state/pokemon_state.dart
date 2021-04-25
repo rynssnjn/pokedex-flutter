@@ -10,9 +10,9 @@ part 'pokemon_state.g.dart';
 @freezed
 abstract class PokemonState with _$PokemonState {
   factory PokemonState({
-    @JsonKey(name: 'pokemons', nullable: true) List<PokemonPokemon> pokemons,
-    @JsonKey(name: 'selectedPokemon', nullable: true) PokemonData selectedPokemon,
-    @JsonKey(name: 'selectedEvolution', nullable: true) PokemonEvolution selectedEvolution,
+    @JsonKey(name: 'pokemons') List<PokemonPokemon>? pokemons,
+    @JsonKey(name: 'selectedPokemon') PokemonData? selectedPokemon,
+    @JsonKey(name: 'selectedEvolution') PokemonEvolution? selectedEvolution,
   }) = _PokemonState;
 
   factory PokemonState.init() => PokemonState(

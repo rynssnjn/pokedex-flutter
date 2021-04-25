@@ -12,21 +12,21 @@ part 'pokemon_data.g.dart';
 @freezed
 abstract class PokemonData with _$PokemonData {
   factory PokemonData({
-    @JsonKey(name: 'id') int id,
-    @JsonKey(nullable: true, name: 'name') String name,
-    @JsonKey(nullable: true, name: 'abilities') List<PokemonAbilities> abilities,
-    @JsonKey(nullable: true, name: 'base_experience') int baseExperience,
-    @JsonKey(nullable: true, name: 'forms') List<PokemonForm> forms,
-    @JsonKey(nullable: true, name: 'height') int height,
-    @JsonKey(nullable: true, name: 'type') String type,
-    @JsonKey(nullable: true, name: 'is_default') bool isDefault,
-    @JsonKey(nullable: true, name: 'location_area_encounters') String locationAreaEncounters,
-    @JsonKey(nullable: true, name: 'moves') List<PokemonMoves> moves,
-    @JsonKey(nullable: true, name: 'order') int order,
-    @JsonKey(nullable: true, name: 'sprites') PokemonSprites sprites,
-    @JsonKey(nullable: true, name: 'stats') List<PokemonStatistics> stats,
-    @JsonKey(nullable: true, name: 'types') List<PokemonTypes> types,
-    @JsonKey(nullable: true, name: 'weight') int weight,
+    @JsonKey(name: 'id') int? id,
+    @JsonKey(name: 'name') String? name,
+    @JsonKey(name: 'abilities') List<PokemonAbilities>? abilities,
+    @JsonKey(name: 'base_experience') int? baseExperience,
+    @JsonKey(name: 'forms') List<PokemonForm>? forms,
+    @JsonKey(name: 'height') int? height,
+    @JsonKey(name: 'type') String? type,
+    @JsonKey(name: 'is_default') bool? isDefault,
+    @JsonKey(name: 'location_area_encounters') String? locationAreaEncounters,
+    @JsonKey(name: 'moves') List<PokemonMoves>? moves,
+    @JsonKey(name: 'order') int? order,
+    @JsonKey(name: 'sprites') PokemonSprites? sprites,
+    @JsonKey(name: 'stats') List<PokemonStatistics>? stats,
+    @JsonKey(name: 'types') List<PokemonTypes>? types,
+    @JsonKey(name: 'weight') int? weight,
   }) = _PokemonData;
 
   factory PokemonData.fromJson(Map<String, dynamic> json) => _$PokemonDataFromJson(json);

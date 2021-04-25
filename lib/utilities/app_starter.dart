@@ -15,7 +15,7 @@ void startApp() async {
     AppStateSerializer(),
   );
 
-  AppState initialState;
+  AppState? initialState;
   try {
     initialState = await persistor.readState();
   } catch (e) {

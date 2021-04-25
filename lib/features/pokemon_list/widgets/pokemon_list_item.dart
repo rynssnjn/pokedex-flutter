@@ -8,12 +8,12 @@ class PokemonListItem extends StatelessWidget {
     @required this.onTap,
     this.name,
     this.imageUrl,
-    Key key,
+    Key? key,
   }) : super(key: key);
 
-  final VoidCallback onTap;
-  final String name;
-  final String imageUrl;
+  final VoidCallback? onTap;
+  final String? name;
+  final String? imageUrl;
 
   @override
   Widget build(BuildContext context) {
@@ -30,11 +30,11 @@ class PokemonListItem extends StatelessWidget {
         child: Column(
           children: [
             CachedNetworkImage(
-              imageUrl: imageUrl,
+              imageUrl: imageUrl ?? '',
               fit: BoxFit.fill,
               placeholder: (_, __) => Center(child: RSJCircularIndicator(size: 20)),
             ),
-            Text(name, style: textTheme.bodyText1),
+            Text(name ?? '', style: textTheme.bodyText1),
           ],
         ),
       ),

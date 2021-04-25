@@ -12,14 +12,14 @@ class DataHeader extends StatelessWidget {
     this.id,
     this.imageURL,
     this.types,
-    Key key,
+    Key? key,
   }) : super(key: key);
 
-  final Color backgroundColor;
-  final String name;
-  final String id;
-  final String imageURL;
-  final List<PokemonType> types;
+  final Color? backgroundColor;
+  final String? name;
+  final String? id;
+  final String? imageURL;
+  final List<PokemonType?>? types;
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +46,7 @@ class DataHeader extends StatelessWidget {
                 width: 120,
                 height: 120,
                 child: CachedNetworkImage(
-                  imageUrl: imageURL,
+                  imageUrl: imageURL ?? '',
                   fit: BoxFit.fill,
                   placeholder: (_, __) => Center(child: RSJCircularIndicator(size: 20)),
                 ),
@@ -56,19 +56,19 @@ class DataHeader extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Text(
-                    name,
-                    style: textTheme.headline1.copyWith(color: Colors.white),
+                    name ?? '',
+                    style: textTheme.headline1?.copyWith(color: Colors.white),
                   ),
                   Text(
-                    id,
-                    style: textTheme.bodyText1.copyWith(color: Colors.white),
+                    id ?? '',
+                    style: textTheme.bodyText1?.copyWith(color: Colors.white),
                     textAlign: TextAlign.justify,
                   ),
                   SizedBox(height: 20),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: types.map((type) => TypeCard(name: type.name)).toUnmodifiable(),
+                    children: types?.map((type) => TypeCard(name: type?.name ?? '')).toUnmodifiable() ?? [],
                   ),
                 ],
               ),

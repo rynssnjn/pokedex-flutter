@@ -5,31 +5,31 @@ import 'package:pokedex_flutter/utilities/app_router.dart';
 import 'package:pokedex_flutter/utilities/string_constants.dart';
 import 'package:rsj_f/rsj_f.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/widgets.dart';
 
 class ApiClient {
   ApiClient({
-    @required this.baseUrl,
+    required this.baseUrl,
     this.responseType,
-  }) : assert(baseUrl != null) {
+  }) {
     dio = Dio()
       ..options.baseUrl = baseUrl
       ..interceptors.add(
         InterceptorsWrapper(
-          onRequest: (RequestOptions options) {
+          onRequest: (RequestOptions options, RequestInterceptorHandler handler) {
             dio.interceptors.requestLock.lock();
-            if (responseType != null) options.responseType = responseType;
+            if (responseType != null) options.responseType = responseType!;
             options.headers = <String, dynamic>{
               'Accept': 'application/json',
               'content-type': 'application/json',
             };
             dio.interceptors.requestLock.unlock();
-            return options;
+            return handler.next(options);
+            // return options;
           },
-          onError: (DioError error) {
+          onError: (DioError error, ErrorInterceptorHandler _) {
             if (error.error is SocketException) {
               throw UserException(
-                generalError.localized(mainNavigatorKey.currentContext),
+                generalError.localized(mainNavigatorKey.currentContext!),
                 code: RequestExceptionCode(key: 'no_connection'),
               );
             }
@@ -47,6 +47,6 @@ class ApiClient {
   }
 
   final String baseUrl;
-  final ResponseType responseType;
-  Dio dio;
+  final ResponseType? responseType;
+  late Dio dio;
 }

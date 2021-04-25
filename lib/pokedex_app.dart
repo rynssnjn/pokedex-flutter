@@ -10,23 +10,23 @@ import 'package:rsj_f/rsj_f.dart';
 class PokedexApp extends StatefulWidget {
   const PokedexApp({this.store});
 
-  final Store<AppState> store;
+  final Store<AppState>? store;
 
   @override
   _PokedexAppState createState() => _PokedexAppState();
 }
 
 class _PokedexAppState extends State<PokedexApp> {
-  LocalizationUtil _localizationUtil;
-  TranslationsDelegate _delegate;
+  LocalizationUtil? _localizationUtil;
+  TranslationsDelegate? _delegate;
 
   @override
   void initState() {
     _localizationUtil = LocalizationUtil()
       ..initLocalization(
         initialLocale: Locale('en'),
-        savedLastOnCallback: (date) => widget.store.dispatch(SetLocalizationDateLoaded(date)),
-        localizationLastLoadedOn: widget.store.state.localizationLastLoadedOn,
+        savedLastOnCallback: (date) => widget.store!.dispatch(SetLocalizationDateLoaded(date)),
+        localizationLastLoadedOn: widget.store!.state.localizationLastLoadedOn,
         translationDelegateChanged: (delegate) => setState(() => _delegate = delegate),
       );
     super.initState();
@@ -35,7 +35,7 @@ class _PokedexAppState extends State<PokedexApp> {
   @override
   Widget build(BuildContext context) {
     return StoreProvider(
-      store: widget.store,
+      store: widget.store!,
       child: MaterialApp(
         theme: pokedexTheme,
         home: UserExceptionWidget<AppState>(
@@ -44,7 +44,7 @@ class _PokedexAppState extends State<PokedexApp> {
             message: key,
           ),
           child: WillPopScope(
-            onWillPop: () async => !await mainNavigatorKey.currentState.maybePop(),
+            onWillPop: () async => !await mainNavigatorKey.currentState!.maybePop(),
             child: Navigator(
               key: mainNavigatorKey,
               initialRoute: PokemonListConnector.route,
@@ -53,11 +53,11 @@ class _PokedexAppState extends State<PokedexApp> {
           ),
         ),
         localizationsDelegates: [
-          _delegate ?? _localizationUtil.translationsDelegate,
+          _delegate ?? _localizationUtil!.translationsDelegate!,
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
         ],
-        supportedLocales: _localizationUtil.appLanguages.supportedLocales() ?? [],
+        supportedLocales: _localizationUtil!.appLanguages!.supportedLocales(),
       ),
     );
   }

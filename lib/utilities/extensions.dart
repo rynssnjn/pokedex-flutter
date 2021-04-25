@@ -4,7 +4,7 @@ import 'package:pokedex_flutter/utilities/colors.dart';
 import 'package:pokedex_flutter/utilities/enums.dart';
 
 extension PokemonDataExt on PokemonData {
-  Color get typeColor => types.first.type.name.colorValue;
+  Color? get typeColor => types?.first.type?.name?.colorValue;
 
   String get idValue {
     final stringId = id.toString();
@@ -32,9 +32,9 @@ extension MeasurementUnitExt on MeasurementUnit {
 }
 
 extension IntExt on int {
-  String getWithUnit({MeasurementUnit unit}) {
+  String getWithUnit({MeasurementUnit? unit}) {
     final doubleValue = toDouble() / 10;
-    return '$doubleValue${unit.shortValue}';
+    return '$doubleValue${unit!.shortValue}';
   }
 }
 

@@ -6,7 +6,7 @@ part 'pokemon_move.g.dart';
 @freezed
 abstract class PokemonMove with _$PokemonMove {
   factory PokemonMove({
-    @JsonKey(nullable: true, name: 'name') String name,
+    @JsonKey(name: 'name') String? name,
   }) = _PokemonMove;
 
   factory PokemonMove.fromJson(Map<String, dynamic> json) => _$PokemonMoveFromJson(json);

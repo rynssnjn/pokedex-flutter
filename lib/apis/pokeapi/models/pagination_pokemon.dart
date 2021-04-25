@@ -7,10 +7,10 @@ part 'pagination_pokemon.g.dart';
 @freezed
 abstract class PaginationPokemon with _$PaginationPokemon {
   factory PaginationPokemon({
-    @JsonKey(nullable: true, name: 'count') int count,
-    @JsonKey(nullable: true, name: 'next') String next,
-    @JsonKey(nullable: true, name: 'previous') String previous,
-    @JsonKey(nullable: true, name: 'results') List<PokemonPokemon> results,
+    @JsonKey(name: 'count') int? count,
+    @JsonKey(name: 'next') String? next,
+    @JsonKey(name: 'previous') String? previous,
+    @JsonKey(name: 'results') List<PokemonPokemon>? results,
   }) = _PaginationPokemon;
 
   factory PaginationPokemon.fromJson(Map<String, dynamic> json) => _$PaginationPokemonFromJson(json);

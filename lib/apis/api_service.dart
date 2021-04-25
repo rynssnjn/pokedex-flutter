@@ -6,7 +6,7 @@ class ApiService {
   PokemonPokemonApi get pokemonApi => _pokemonApi ??= PokemonPokemonApi(_pokeApi);
 
   ApiClient get _pokeApi => _createApiClient(baseUrl: AppConfig().pokeApiBaseURL);
-  ApiClient _createApiClient({String baseUrl}) => ApiClient(baseUrl: baseUrl);
+  ApiClient _createApiClient({String? baseUrl}) => ApiClient(baseUrl: baseUrl ?? '', responseType: null);
 
-  PokemonPokemonApi _pokemonApi;
+  PokemonPokemonApi? _pokemonApi;
 }

@@ -9,10 +9,10 @@ part 'app_state.g.dart';
 @freezed
 abstract class AppState with _$AppState {
   factory AppState({
-    @JsonKey(name: 'localizationLastLoadedOn', nullable: true) DateTime localizationLastLoadedOn,
-    @JsonKey(name: 'pagination', ignore: true) PaginationPokemon pagination,
-    @JsonKey(name: 'wait', ignore: true) Wait wait,
-    @required @JsonKey(name: 'pokemonState') PokemonState pokemonState,
+    @JsonKey(name: 'localizationLastLoadedOn') DateTime? localizationLastLoadedOn,
+    @JsonKey(name: 'pagination', ignore: true) PaginationPokemon? pagination,
+    @JsonKey(name: 'wait', ignore: true) Wait? wait,
+    @required @JsonKey(name: 'pokemonState') PokemonState? pokemonState,
   }) = _AppState;
 
   factory AppState.init() => AppState(
@@ -25,7 +25,7 @@ abstract class AppState with _$AppState {
 
 class AppStateSerializer extends StateSerializer<AppState> {
   @override
-  AppState decode(Map<String, dynamic> data) => AppState.fromJson(data);
+  AppState decode(Map<String, dynamic>? data) => AppState.fromJson(data!);
 
   @override
   Map<String, dynamic> encode(state) => state.toJson();

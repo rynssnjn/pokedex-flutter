@@ -25,10 +25,10 @@ class GetPokemonsAction extends LoadingAction<AppState> {
   Future<AppState> reduce() async {
     final pagination = await getIt<ApiService>().pokemonApi.getAll(offset: offset);
     final pokemons = [
-      ...state.pokemonState.pokemons,
-      ...pagination.results,
+      ...state.pokemonState!.pokemons!,
+      ...pagination.results!,
     ];
-    final pokemonState = state.pokemonState.copyWith(pokemons: pokemons.toUnmodifiable());
+    final pokemonState = state.pokemonState!.copyWith(pokemons: pokemons.toUnmodifiable());
 
     return state.copyWith(
       pagination: pagination,
@@ -49,7 +49,7 @@ class GetPokemonDataAction extends LoadingAction<AppState> {
   Future<AppState> reduce() async {
     final pokemon = await getIt<ApiService>().pokemonApi.getById(id);
 
-    return state.copyWith.pokemonState(selectedPokemon: pokemon);
+    return state.copyWith.pokemonState!(selectedPokemon: pokemon);
   }
 }
 
@@ -63,12 +63,12 @@ class GetEvolutionChain extends LoadingAction<AppState> {
   @override
   Future<AppState> reduce() async {
     final species = await getIt<ApiService>().pokemonApi.getSpeciesById(id);
-    final uri = Uri(path: species.evolutionChain.url);
+    final uri = Uri(path: species.evolutionChain!.url);
     final evolutionId = uri.pathSegments.filter((segment) => segment.isNotBlank).last.toInt();
     final evolutionChain = await getIt<ApiService>().pokemonApi.getEvolutionChainById(evolutionId);
     final evolution = _mapEvolution(evolutionChain);
 
-    return state.copyWith.pokemonState(selectedEvolution: evolution);
+    return state.copyWith.pokemonState!(selectedEvolution: evolution);
   }
 
   PokemonEvolution _mapEvolution(Map<dynamic, dynamic> chain) {

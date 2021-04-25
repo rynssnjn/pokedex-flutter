@@ -8,12 +8,12 @@ class BaseStatBar extends StatelessWidget {
     this.valueColor,
   });
 
-  final int rawScore;
-  final double barWidth;
-  final Color valueColor;
+  final int? rawScore;
+  final double? barWidth;
+  final Color? valueColor;
 
   double _scoreWidth(int score) {
-    return (score * barWidth) / 200;
+    return (score * (barWidth ?? 0)) / 200;
   }
 
   @override
@@ -31,7 +31,7 @@ class BaseStatBar extends StatelessWidget {
         ),
         Container(
           height: 5,
-          width: _scoreWidth(rawScore),
+          width: _scoreWidth(rawScore ?? 0),
           decoration: BoxDecoration(
             color: valueColor,
             borderRadius: BorderRadius.all(Radius.circular(5)),

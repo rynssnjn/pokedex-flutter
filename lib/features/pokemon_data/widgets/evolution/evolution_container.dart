@@ -9,38 +9,39 @@ class EvolutionContainer extends StatelessWidget {
   const EvolutionContainer({
     this.evolution,
     this.titleColor,
-    Key key,
+    Key? key,
   }) : super(key: key);
 
-  final PokemonEvolution evolution;
-  final Color titleColor;
+  final PokemonEvolution? evolution;
+  final Color? titleColor;
 
   @override
   Widget build(BuildContext context) {
     return DataContainer(
       title: strings.evolution.localized(context),
-      titleColor: titleColor,
+      titleColor: titleColor ?? Colors.black,
       children: [
-        if (evolution.base != null)
+        if (evolution?.base != null)
           PokemonListItem(
             onTap: () {},
-            name: evolution.base.name.capitalize(),
-            imageUrl: evolution.base.url,
+            name: evolution?.base?.name?.capitalize() ?? '',
+            imageUrl: evolution?.base?.url ?? '',
           ),
-        if (evolution.middle != null)
+        if (evolution?.middle != null)
           PokemonListItem(
             onTap: () {},
-            name: evolution.middle.name.capitalize(),
-            imageUrl: evolution.middle.url,
+            name: evolution?.middle?.name?.capitalize() ?? '',
+            imageUrl: evolution?.middle?.url ?? '',
           ),
-        if (evolution.last?.isNotEmpty == true)
-          ...evolution.last
-              .map((pokemon) => PokemonListItem(
-                    onTap: () {},
-                    name: pokemon.name.capitalize(),
-                    imageUrl: pokemon.url,
-                  ))
-              .toUnmodifiable(),
+        if (evolution?.last?.isNotEmpty == true)
+          ...evolution?.last
+                  ?.map((pokemon) => PokemonListItem(
+                        onTap: () {},
+                        name: pokemon.name?.capitalize() ?? '',
+                        imageUrl: pokemon.url ?? '',
+                      ))
+                  .toUnmodifiable() ??
+              [],
       ],
     );
   }

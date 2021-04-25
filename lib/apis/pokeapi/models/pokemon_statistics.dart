@@ -7,9 +7,9 @@ part 'pokemon_statistics.g.dart';
 @freezed
 abstract class PokemonStatistics with _$PokemonStatistics {
   factory PokemonStatistics({
-    @JsonKey(nullable: true, name: 'base_stat') int baseState,
-    @JsonKey(nullable: true, name: 'effort') int effort,
-    @JsonKey(nullable: true, name: 'stat') PokemonStats stats,
+    @JsonKey(name: 'base_stat') int? baseState,
+    @JsonKey(name: 'effort') int? effort,
+    @JsonKey(name: 'stat') PokemonStats? stats,
   }) = _PokemonStatistics;
 
   factory PokemonStatistics.fromJson(Map<String, dynamic> json) => _$PokemonStatisticsFromJson(json);

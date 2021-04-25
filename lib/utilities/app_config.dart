@@ -7,7 +7,7 @@ class AppConfig {
 
   final _config = _Config.configure();
 
-  String get pokeApiBaseURL => _config.pokeApiBaseURL;
+  String get pokeApiBaseURL => _config.pokeApiBaseURL!;
 }
 
 class _Config {
@@ -19,5 +19,5 @@ class _Config {
         pokeApiBaseURL: 'https://pokeapi.co/api/v2/',
       );
 
-  final String pokeApiBaseURL;
+  final String? pokeApiBaseURL;
 }

@@ -9,24 +9,25 @@ class StatsContainer extends StatelessWidget {
   const StatsContainer({
     this.stats,
     this.decorationColor,
-    Key key,
+    Key? key,
   }) : super(key: key);
 
-  final List<PokemonStatistics> stats;
-  final Color decorationColor;
+  final List<PokemonStatistics>? stats;
+  final Color? decorationColor;
 
   @override
   Widget build(BuildContext context) {
     return DataContainer(
       title: strings.stats.localized(context),
-      titleColor: decorationColor,
+      titleColor: decorationColor ?? Colors.black,
       children: stats
-          .map((stat) => StatsCardTile(
-                category: stat.stats.name,
-                value: stat.baseState,
-                barColor: decorationColor,
-              ))
-          .toUnmodifiable(),
+              ?.map((stat) => StatsCardTile(
+                    category: stat.stats?.name,
+                    value: stat.baseState,
+                    barColor: decorationColor,
+                  ))
+              .toUnmodifiable() ??
+          [],
     );
   }
 }

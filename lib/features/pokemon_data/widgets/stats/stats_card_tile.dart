@@ -6,12 +6,12 @@ class StatsCardTile extends StatelessWidget {
     this.category,
     this.value,
     this.barColor,
-    Key key,
+    Key? key,
   }) : super(key: key);
 
-  final String category;
-  final int value;
-  final Color barColor;
+  final String? category;
+  final int? value;
+  final Color? barColor;
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +31,7 @@ class StatsCardTile extends StatelessWidget {
           valueColor: barColor,
         ),
         subtitle: Text(
-          category.toUpperCase(),
+          category?.toUpperCase() ?? '',
           style: textTheme.caption,
         ),
         trailing: Text(

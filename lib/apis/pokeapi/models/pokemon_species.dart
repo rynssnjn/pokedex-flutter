@@ -7,7 +7,7 @@ part 'pokemon_species.g.dart';
 @freezed
 abstract class PokemonSpecies with _$PokemonSpecies {
   factory PokemonSpecies({
-    @JsonKey(nullable: true, name: 'evolution_chain') PokemonEvolutionChain evolutionChain,
+    @JsonKey(name: 'evolution_chain') PokemonEvolutionChain? evolutionChain,
   }) = _PokemonSpecies;
 
   factory PokemonSpecies.fromJson(Map<String, dynamic> json) => _$PokemonSpeciesFromJson(json);

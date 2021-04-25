@@ -5,12 +5,12 @@ class DataContainer extends StatelessWidget {
     this.title,
     this.titleColor,
     this.children,
-    Key key,
+    Key? key,
   }) : super(key: key);
 
-  final String title;
-  final List<Widget> children;
-  final Color titleColor;
+  final String? title;
+  final List<Widget>? children;
+  final Color? titleColor;
 
   @override
   Widget build(BuildContext context) {
@@ -20,11 +20,11 @@ class DataContainer extends StatelessWidget {
         Container(
           padding: const EdgeInsets.symmetric(vertical: 20),
           child: Text(
-            title,
-            style: textTheme.headline4.copyWith(color: titleColor),
+            title ?? '',
+            style: textTheme.headline4?.copyWith(color: titleColor),
           ),
         ),
-        Expanded(child: ListView(children: children)),
+        Expanded(child: ListView(children: children ?? [])),
       ],
     );
   }

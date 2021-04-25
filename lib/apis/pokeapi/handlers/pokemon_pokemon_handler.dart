@@ -5,7 +5,7 @@ class PokemonPokemonApi {
 
   PokemonPokemonApi(ApiClient apiClient) : apiClient = apiClient;
 
-  Future<PaginationPokemon> getAll({int offset = 0}) async {
+  Future<PaginationPokemon> getAll({int? offset}) async {
     final queryParams = <String, dynamic>{};
 
     if (offset != null) {
@@ -14,7 +14,7 @@ class PokemonPokemonApi {
 
     queryParams['limit'] = '20';
 
-    final baseUri = Uri.tryParse(apiClient.baseUrl);
+    final baseUri = Uri.parse(apiClient.baseUrl);
     final uri = baseUri.replace(queryParameters: queryParams, path: baseUri.path + '/pokemon/');
 
     return await apiClient.dio
@@ -29,7 +29,7 @@ class PokemonPokemonApi {
   Future<PokemonData> getById(int id) async {
     final queryParams = <String, dynamic>{};
 
-    final baseUri = Uri.tryParse(apiClient.baseUrl);
+    final baseUri = Uri.parse(apiClient.baseUrl);
     final uri = baseUri.replace(queryParameters: queryParams, path: baseUri.path + '/pokemon/$id/');
 
     return await apiClient.dio
@@ -44,7 +44,7 @@ class PokemonPokemonApi {
   Future<PokemonSpecies> getSpeciesById(int id) async {
     final queryParams = <String, dynamic>{};
 
-    final baseUri = Uri.tryParse(apiClient.baseUrl);
+    final baseUri = Uri.parse(apiClient.baseUrl);
     final uri = baseUri.replace(queryParameters: queryParams, path: baseUri.path + '/pokemon-species/$id/');
 
     return await apiClient.dio
@@ -57,8 +57,7 @@ class PokemonPokemonApi {
   }
 
   Future<Map> getEvolutionChainById(int id) async {
-    return await http.get(apiClient.baseUrl + '/evolution-chain/$id/').then((response) {
-      return jsonDecode(response.body)['chain'];
-    });
+    final uri = Uri.parse('${apiClient.baseUrl}/evolution-chain/$id/');
+    return await http.get(uri).then((response) => jsonDecode(response.body)['chain']);
   }
 }

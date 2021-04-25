@@ -13,43 +13,44 @@ class AboutContainer extends StatelessWidget {
     this.baseExperience,
     this.abilities,
     this.decorationColor,
-    Key key,
+    Key? key,
   }) : super(key: key);
 
-  final int height;
-  final int weight;
-  final int baseExperience;
-  final String abilities;
-  final Color decorationColor;
+  final int? height;
+  final int? weight;
+  final int? baseExperience;
+  final String? abilities;
+  final Color? decorationColor;
 
   @override
   Widget build(BuildContext context) {
+    final color = decorationColor ?? Colors.black;
     return DataContainer(
       title: strings.about.localized(context),
-      titleColor: decorationColor,
+      titleColor: color,
       children: [
         CardItemTile(
           category: strings.height.localized(context),
-          value: height.getWithUnit(unit: MeasurementUnit.METERS),
-          leadingColor: decorationColor,
+          value: height?.getWithUnit(unit: MeasurementUnit.METERS) ?? '',
+          leadingColor: color,
           icon: Icons.height_rounded,
         ),
         CardItemTile(
           category: strings.weight.localized(context),
-          value: weight.getWithUnit(unit: MeasurementUnit.KILOGRAMS),
-          leadingColor: decorationColor,
+          value: weight?.getWithUnit(unit: MeasurementUnit.KILOGRAMS) ?? '',
+          leadingColor: color,
           icon: Icons.linear_scale_rounded,
         ),
         CardItemTile(
           category: strings.baseExperience.localized(context),
           value: '$baseExperience xp',
-          leadingColor: decorationColor,
+          leadingColor: color,
           icon: Icons.bar_chart_rounded,
         ),
         CardItemTile(
           category: strings.abilities.localized(context),
-          value: abilities,
-          leadingColor: decorationColor,
+          value: abilities ?? '',
+          leadingColor: color,
           icon: Icons.accessibility_outlined,
         ),
       ],
